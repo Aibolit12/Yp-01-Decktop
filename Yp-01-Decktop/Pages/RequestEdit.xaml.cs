@@ -26,6 +26,20 @@ namespace Yp_01_Decktop.Pages
             InitializeComponent();
             mainWindow = _mainWindow;
         }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Введите оборудование" || textBox.Text == "Введите описание проблемы") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (textBox == Equipment) textBox.Text = "Введите оборудование";
+                else if (textBox == Description) textBox.Text = "Введите описание проблемы";
+            }
+        }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.Main(mainWindow));

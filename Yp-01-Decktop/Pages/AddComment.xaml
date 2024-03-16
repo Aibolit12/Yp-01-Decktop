@@ -14,7 +14,7 @@
         <Border Margin="20,60,20,20" CornerRadius="20" Background="White">
             <Grid>
                 <Label x:Name="z" Content="Комментарий: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
-                <TextBox Text="Введите комментарий" VerticalAlignment="Top" Margin="140,40,10,0" Height="30" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="Comment" Text="Введите комментарий" VerticalAlignment="Top" Margin="140,40,10,0" Height="30" VerticalContentAlignment="Center" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
                
                 <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5">
                     <Label Content="Создать отчет" FontSize="16" FontWeight="Bold"/>

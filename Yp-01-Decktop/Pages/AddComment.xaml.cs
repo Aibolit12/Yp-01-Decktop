@@ -26,6 +26,19 @@ namespace Yp_01_Decktop.Pages
             InitializeComponent();
             mainWindow = _mainWindow;
         }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Введите комментарий") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (textBox == Comment) textBox.Text = "Введите комментарий";
+            }
+        }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.Main(mainWindow));
