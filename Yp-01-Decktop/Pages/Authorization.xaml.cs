@@ -42,5 +42,9 @@ namespace Yp_01_Decktop.Pages
                 else if (textBox == Password) textBox.Text = "Введите пароль";
             }
         }
+        public void TransitionRegistration(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Registration(mainWindow));
+        }
     }
 }

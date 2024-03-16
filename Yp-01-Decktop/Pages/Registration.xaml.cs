@@ -20,9 +20,30 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class Registration : Page
     {
-        public Registration()
+        MainWindow mainWindow;
+        public Registration(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Введите логин" || textBox.Text == "Введите пароль" || textBox.Text == "Введите ФИО") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (textBox == Login) textBox.Text = "Введите логин";
+                else if (textBox == Password) textBox.Text = "Введите пароль";
+                else if (textBox == FIO) textBox.Text = "Введите ФИО";
+            }
+        }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Authorization(mainWindow));
         }
     }
 }

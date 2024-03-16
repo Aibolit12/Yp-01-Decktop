@@ -12,8 +12,6 @@ namespace Yp_01_Decktop.Classes
         public string Login { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string MiddleName { get; set; }
+        public string FIO { get; set; }
     }
 }
