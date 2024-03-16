@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yp_01_Decktop.Items;
 
 namespace Yp_01_Decktop.Pages
 {
@@ -25,6 +26,18 @@ namespace Yp_01_Decktop.Pages
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+            mainWindow.LoadItem();
+            Load();
+        }
+        public void Load()
+        {
+            pagesListBox.Items.Clear();
+            foreach (var page in mainWindow.RequestItem)
+            {
+                RequestItem pageControl = new RequestItem();
+                pageControl.DataContext = page;
+                pagesListBox.Items.Add(pageControl);
+            }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {

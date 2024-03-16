@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yp_01_Decktop.Classes;
 
 namespace Yp_01_Decktop.Pages
 {
@@ -21,14 +23,35 @@ namespace Yp_01_Decktop.Pages
     public partial class Authorization : Page
     {
         MainWindow mainWindow;
-        public Authorization(MainWindow _mainWindo)
+        public Authorization(MainWindow _mainWindow)
         {
             InitializeComponent();
-            mainWindow = _mainWindo;
+            mainWindow = _mainWindow;
         }
         public void ToComeIn(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+            if (Login.Text.Length != 0 && Password.Text.Length != 0)
+            {
+                try
+                {
+                    DataTable result = Classes.DataBase.Select($"SELECT * FROM [Users] WHERE Login='{Login.Text}' AND Password='{Password.Text}'");
+                    if (result.Rows.Count > 0)
+                    {
+                        Users.Id = Convert.ToInt32(result.Rows[0]["Id"]);
+                        Users.Login = result.Rows[0]["Login"].ToString();
+                        Users.Password= result.Rows[0]["Password"].ToString();
+                        Users.Role = result.Rows[0]["Role"].ToString();
+                        mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+                    }
+                    else MessageBox.Show("Неверное имя пользователя или пароль.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Заполните все поля");
+
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

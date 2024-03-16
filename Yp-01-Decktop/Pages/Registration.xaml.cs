@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Yp_01_Decktop.Pages
 {
@@ -40,6 +30,22 @@ namespace Yp_01_Decktop.Pages
                 else if (textBox == Password) textBox.Text = "Введите пароль";
                 else if (textBox == FIO) textBox.Text = "Введите ФИО";
             }
+        }
+        public void Registr(object sender, RoutedEventArgs e)
+        {
+            if (Login.Text.Length != 0 && Password.Text.Length != 0 && FIO.Text.Length != 0)
+            {
+                try
+                {
+                    Classes.DataBase.Select($"insert into [Users] (Login,Password, FIO, Role ) values ('{Login.Text}','{Password.Text}','{FIO.Text}', '{"Клиент"}')");
+                    mainWindow.frame.Navigate(new Pages.Authorization(mainWindow));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Заполните все поля");
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {

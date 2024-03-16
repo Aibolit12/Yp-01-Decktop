@@ -25,7 +25,7 @@
                     <TextBox Text="Введите пароль" FontSize="14" x:Name="Password" Width="250" BorderThickness="0" Height="23" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
                 </Border>
 
-                <Border CornerRadius="12" Padding="5" VerticalAlignment="Bottom" BorderThickness="1" BorderBrush="Black" Height="38" Width="150" HorizontalAlignment="Center" Margin="0,0,0,60">
+                <Border CornerRadius="12" Padding="5" VerticalAlignment="Bottom" BorderThickness="1" BorderBrush="Black" Height="38" Width="150" HorizontalAlignment="Center" Margin="0,0,0,60" MouseDown="Registr">
                     <Label Content="Зарегистрироваться" BorderThickness="0" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
                 </Border>
 
