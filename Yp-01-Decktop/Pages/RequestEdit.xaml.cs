@@ -40,6 +40,10 @@ namespace Yp_01_Decktop.Pages
                 else if (textBox == Description) textBox.Text = "Введите описание проблемы";
             }
         }
+        public void AddRequest(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+        }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.Main(mainWindow));

@@ -40,6 +40,10 @@ namespace Yp_01_Decktop.Pages
                 else if (textBox == Price) textBox.Text = "Введите стоимость";
             }
         }
+        public void CreateReport(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+        }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.Main(mainWindow));
