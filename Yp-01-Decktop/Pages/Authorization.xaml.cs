@@ -20,9 +20,27 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class Authorization : Page
     {
-        public Authorization()
+        MainWindow mainWindow;
+        public Authorization(MainWindow _mainWindo)
         {
             InitializeComponent();
+            mainWindow = _mainWindo;
+        }
+
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "Введите логин" || textBox.Text == "Введите пароль") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text)) 
+            {
+                if (textBox == Login) textBox.Text = "Введите логин";
+                else if (textBox == Password) textBox.Text = "Введите пароль";
+            }
         }
     }
 }

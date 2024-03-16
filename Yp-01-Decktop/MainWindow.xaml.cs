@@ -23,6 +23,7 @@ namespace Yp_01_Decktop
         public MainWindow()
         {
             InitializeComponent();
+            this.frame.Navigate(new Pages.Authorization(this));
         }
     }
 }
