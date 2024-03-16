@@ -81,6 +81,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\DataBase.cs" />
     <Compile Include="Classes\HistoryPerformerRequest.cs" />
     <Compile Include="Classes\PDF.cs" />
     <Compile Include="Classes\QRCode.cs" />
