@@ -131,10 +131,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\UserEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AddComment.xaml.cs">
@@ -160,9 +156,6 @@
     </Compile>
     <Compile Include="Pages\Statistic.xaml.cs">
       <DependentUpon>Statistic.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UserEdit.xaml.cs">
-      <DependentUpon>UserEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -20,9 +20,16 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class Statistic : Page
     {
-        public Statistic()
+        MainWindow mainWindow;
+        public Statistic(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+        }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
         }
     }
+
 }

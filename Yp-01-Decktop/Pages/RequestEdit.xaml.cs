@@ -26,5 +26,9 @@ namespace Yp_01_Decktop.Pages
             InitializeComponent();
             mainWindow = _mainWindow;
         }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+        }
     }
 }

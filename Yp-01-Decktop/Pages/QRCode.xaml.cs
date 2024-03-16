@@ -20,9 +20,20 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class QRCode : Page
     {
-        public QRCode()
+        MainWindow mainWindow;
+        public QRCode(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+            LoadQRCOde();
+        }
+        private void LoadQRCOde()
+        {
+            ImageQRCode.Source = Classes.QRCode.CreateBitmapCode(":)))))))))))))))))))))))))))))))))))))))))))))))))))");
+        }
+        public void TransitionBack(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
         }
     }
 }

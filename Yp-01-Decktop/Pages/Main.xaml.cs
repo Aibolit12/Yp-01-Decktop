@@ -55,7 +55,25 @@ namespace Yp_01_Decktop.Pages
         {
 
         }
+        public void TransitionAddComment(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.AddComment(mainWindow));
+        }
 
+        public void TransitionReport(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Report(mainWindow));
+        }
+
+        public void TransitionQRCode(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.QRCode(mainWindow));
+        }
+
+        public void TransitionStatistic(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Statistic(mainWindow));
+        }
 
         public void Exit(object sender, RoutedEventArgs e)
         {
