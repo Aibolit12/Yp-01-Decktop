@@ -20,9 +20,39 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        MainWindow mainWindow;
+        public Main(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "По номеру заявки или параметрам") textBox.Text = "";
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки или параметрам";
+        }
+
+
+        public void Search(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        public void Exit(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Authorization(mainWindow));
+        }
+
+
+        public void AddRequest(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow));
         }
     }
 }

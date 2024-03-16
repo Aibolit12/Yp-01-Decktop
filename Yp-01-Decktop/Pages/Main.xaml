@@ -8,7 +8,28 @@
       d:DesignHeight="500" d:DesignWidth="900"
       Title="Main">
 
-    <Grid>
-        
+    <Grid Background="#f6f6f6">
+        <Grid VerticalAlignment="Top" Margin="20,5,20,0">
+            <Label Content="Поиск"  HorizontalAlignment="Left" Margin="20,5,0,0" FontWeight="Bold"/>
+            
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,5,0,0" Width="250" Padding="5" Background="White">
+                <TextBox x:Name="SearchText" Text="По номеру заявки или параметрам" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            </Border>
+            
+            <Border  CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="320,5,0,0" Background="White" Padding="5" MouseDown="Search">
+                <Image Source="/Images/search.png" Width="15" Height="15"/>
+            </Border>
+
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,140,0" Background="White" Width="100" MouseDown="AddRequest">
+                <Label Content="Добавить" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            </Border>
+            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,20,0" Background="White" Width="100" MouseDown="Exit">
+                <Label Content="Выход" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            </Border>
+        </Grid>
+
+        <Border Margin="40,60,40,40" Background="White" CornerRadius="20" BorderThickness="1" Padding="5" >
+            <ListBox x:Name="pagesListBox" BorderThickness="0"/>
+        </Border>
     </Grid>
 </Page>

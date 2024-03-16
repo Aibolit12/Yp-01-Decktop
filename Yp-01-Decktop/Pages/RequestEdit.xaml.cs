@@ -20,9 +20,11 @@ namespace Yp_01_Decktop.Pages
     /// </summary>
     public partial class RequestEdit : Page
     {
-        public RequestEdit()
+        MainWindow mainWindow;
+        public RequestEdit(MainWindow _mainWindow)
         {
             InitializeComponent();
+            mainWindow = _mainWindow;
         }
     }
 }
