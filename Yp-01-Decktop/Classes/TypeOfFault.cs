@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Yp_01_Decktop.Classes
 {
-    internal class TypeOfFault
+    public class TypeOfFault
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
