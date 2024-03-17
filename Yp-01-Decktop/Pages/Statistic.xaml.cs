@@ -40,8 +40,7 @@ namespace Yp_01_Decktop.Pages
                 }
             }
             if (totalTime.Days == 0) AvarageTime.Content = "Среднее время выполнения заявки: " + totalTime.Days;
-            else AvarageTime.Content = "Среднее время выполнения заявки: " + totalTime.Days / complete + " День";
-
+            else AvarageTime.Content = "Среднее время выполнения заявки: " + totalTime.Days / complete + " день";
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
