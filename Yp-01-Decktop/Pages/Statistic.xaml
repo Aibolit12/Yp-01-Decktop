@@ -14,7 +14,7 @@
         <Border Margin="20,60,20,20" CornerRadius="20" Background="White">
             <Grid>
                 <Label x:Name="CountRequest" Content="Количество выполненных заявок: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
-                <Label x:Name="c" Content="Среднее время выполнения заявки: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,120,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
+                <Label x:Name="AvarageTime" Content="Среднее время выполнения заявки: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,120,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
             </Grid>
         </Border>
     </Grid>
