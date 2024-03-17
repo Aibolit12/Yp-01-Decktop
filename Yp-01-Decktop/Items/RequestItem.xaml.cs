@@ -43,6 +43,7 @@ namespace Yp_01_Decktop.Items
             if (Users.Role == "Сотрудник")
             {
                 ChangeStatus.Visibility= Visibility.Visible;
+                ChangeReport.Visibility= Visibility.Visible;
             }
         }
         public void LoadItemsRequest()
@@ -61,6 +62,10 @@ namespace Yp_01_Decktop.Items
         public void TransitionUpDateRequestManager(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow, request));
+        }
+        public void TransitionChangeReport(object sender, RoutedEventArgs e)
+        {
+            mainWindow.frame.Navigate(new Pages.Report(mainWindow, request));
         }
         public void DeleteRequst(object sender, RoutedEventArgs e)
         {

@@ -25,6 +25,9 @@
             <Border x:Name="ChangeStatus" Width="150" CornerRadius="12" Height="25" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,30,10,0" Background="White" MouseDown="TransitionUpDateRequestManager" Visibility="Hidden">
                 <Label Content="Изменить статус" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
             </Border>
+            <Border x:Name="ChangeReport" Width="150" CornerRadius="12" Height="25" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,60,10,0" Background="White" MouseDown="TransitionChangeReport" Visibility="Hidden">
+                <Label Content="Создать отчет" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
+            </Border>
             <Border x:Name="ChangeRequest" Width="150" CornerRadius="12" Height="25" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="110,30,10,0" Background="White" MouseDown="TransitionUpDateRequestManager" Visibility="Hidden">
                 <Label Content="Изменить заявку" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
             </Border>

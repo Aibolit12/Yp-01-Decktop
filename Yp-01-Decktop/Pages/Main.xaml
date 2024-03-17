@@ -28,10 +28,6 @@
                 <Label Content="Статистика" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </Border>
 
-            <Border x:Name="ReportPerformer" Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionReport" Visibility="Hidden">
-                <Label Content="Отчет" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
-
             <Border x:Name="AddRequstClient" CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,110,0" Background="White" Width="80" MouseDown="AddRequest" Visibility="Hidden">
                 <Label Content="Добавить" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
             </Border>

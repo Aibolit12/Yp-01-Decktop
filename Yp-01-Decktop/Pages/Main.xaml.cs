@@ -29,7 +29,7 @@ namespace Yp_01_Decktop.Pages
             mainWindow = _mainWindow;
             mainWindow.LoadItem();
             Load();
-            if(Users.Role == "Клиент")
+            if (Users.Role == "Клиент")
             {
                 AddRequstClient.Visibility = Visibility.Visible;
                 QRCodeClient.Visibility = Visibility.Visible;
@@ -37,10 +37,6 @@ namespace Yp_01_Decktop.Pages
             else if (Users.Role == "Менеджер")
             {
                 StatisticManager.Visibility = Visibility.Visible;
-            }
-            else if (Users.Role == "Сотрудник")
-            {
-                ReportPerformer.Visibility = Visibility.Visible;
             }
         }
         public void Load()
@@ -72,11 +68,6 @@ namespace Yp_01_Decktop.Pages
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
             mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow));
-        }
-
-        public void TransitionReport(object sender, RoutedEventArgs e)
-        {
-            mainWindow.frame.Navigate(new Pages.Report(mainWindow));
         }
 
         public void TransitionQRCode(object sender, RoutedEventArgs e)

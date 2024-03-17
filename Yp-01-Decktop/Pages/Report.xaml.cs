@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yp_01_Decktop.Classes;
 
 namespace Yp_01_Decktop.Pages
 {
@@ -21,10 +22,12 @@ namespace Yp_01_Decktop.Pages
     public partial class Report : Page
     {
         MainWindow mainWindow;
-        public Report(MainWindow _mainWindow)
+        Classes.Request request;
+        public Report(MainWindow _mainWindow, Classes.Request _request)
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+            request = _request;
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -36,12 +39,15 @@ namespace Yp_01_Decktop.Pages
             TextBox textBox = (TextBox)sender;
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-                if (textBox == Equipment) textBox.Text = "Введите материалы которые вы потратили на эту заявку";
+                if (textBox == Materials) textBox.Text = "Введите материалы которые вы потратили на эту заявку";
                 else if (textBox == Price) textBox.Text = "Введите стоимость";
             }
         }
         public void CreateReport(object sender, RoutedEventArgs e)
         {
+            string materials = Materials.Text;
+            string price = Price.Text;
+            PDF.CreatePDF(request.Number.ToString(), DateTime.Now.ToString(), request.Equipment, (DateTime.Parse(request.EndDate) - DateTime.Parse(request.StartDate)).ToString(), materials, price);
             mainWindow.frame.Navigate(new Pages.Main(mainWindow));
         }
         public void TransitionBack(object sender, RoutedEventArgs e)

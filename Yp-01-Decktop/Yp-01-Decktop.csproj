@@ -65,10 +65,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Items\HistoryPerformerRequestItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Items\RequestItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,9 +85,6 @@
     <Compile Include="Classes\Status.cs" />
     <Compile Include="Classes\TypeOfFault.cs" />
     <Compile Include="Classes\Users.cs" />
-    <Compile Include="Items\HistoryPerformerRequestItem.xaml.cs">
-      <DependentUpon>HistoryPerformerRequestItem.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Items\RequestItem.xaml.cs">
       <DependentUpon>RequestItem.xaml</DependentUpon>
     </Compile>
