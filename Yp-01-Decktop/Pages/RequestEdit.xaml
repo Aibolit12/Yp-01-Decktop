@@ -10,8 +10,8 @@
 
     <Grid Background="#f6f6f6">
         <Label Content="Вернуться назад" Margin="20,10,0,0" FontSize="14" Opacity="0.6" FontWeight="Bold" MouseDown="TransitionBack"/>
-        <Label x:Name="z" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
-        <Border Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5">
+        <Label x:Name="name" Content="Добавление заявки" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <Border x:Name="RequestClientEdit" Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5" Visibility="Hidden">
             <Grid>
                 <Label Content="Оборудование: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
                 <Border VerticalAlignment="Top" Margin="140,10,10,0" Height="30" CornerRadius="12" BorderThickness="1" Background="#f6f6f6" Padding="3">
@@ -24,8 +24,34 @@
                 <Border CornerRadius="12" VerticalAlignment="Top" Margin="140,110,10,0" Height="30" BorderThickness="1" Background="#f6f6f6" Padding="3">
                     <TextBox x:Name="Description" Text="Введите описание проблемы" VerticalContentAlignment="Center" BorderThickness="0" Background="#f6f6f6" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
                 </Border>
-                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5" MouseDown="AddRequest">
+                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5" MouseDown="AddRequestClient">
                     <Label Content="Добавить" FontSize="16" FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Border>
+        <Border x:Name="RequestManagerEdit" Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5" Visibility="Hidden">
+            <Grid>
+                <Label Content="Исполнитель: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <ComboBox x:Name="comboBoxPerformer" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,10,0,0"/>
+                <Label Content="Дата окончания: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0"/>
+                <Border CornerRadius="12" VerticalAlignment="Top" Margin="140,60,10,0" Height="30" BorderThickness="1" Background="#f6f6f6" Padding="3">
+                    <TextBox x:Name="EndDate" Text="Введите дату окончания" VerticalContentAlignment="Center" BorderThickness="0" Background="#f6f6f6" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                </Border>
+                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5" MouseDown="UpDateRequestManager">
+                    <Label Content="Изменить" FontSize="16" FontWeight="Bold"/>
+                </Border>
+            </Grid>
+        </Border>
+        <Border x:Name="RequestPerformerEdit" Margin="20,60,20,20" CornerRadius="20" BorderThickness="1" Background="White" Padding="5" Visibility="Hidden">
+            <Grid>
+                <Label Content="Статус: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <ComboBox x:Name="comboBoxStatus" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,10,0,0"/>
+                <Label Content="Комментарий: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0"/>
+                <Border VerticalAlignment="Top" Margin="140,60,10,0" Height="30" CornerRadius="12" BorderThickness="1" Background="#f6f6f6" Padding="3">
+                    <TextBox x:Name="CommentPerformer" Text="Введите комментарий"  VerticalContentAlignment="Center" Background="#f6f6f6" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                </Border>
+                <Border CornerRadius="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20" Background="#f6f6f6" Padding="5" MouseDown="UpDateRequestPerformer">
+                    <Label Content="Изменить" FontSize="16" FontWeight="Bold"/>
                 </Border>
             </Grid>
         </Border>

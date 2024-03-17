@@ -13,7 +13,7 @@
         <Label Content="Статистика" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
         <Border Margin="20,60,20,20" CornerRadius="20" Background="White">
             <Grid>
-                <Label x:Name="z" Content="Количество выполненных заявок: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
+                <Label x:Name="CountRequest" Content="Количество выполненных заявок: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,40,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
                 <Label x:Name="c" Content="Среднее время выполнения заявки: " HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,120,0,0" FontWeight="Bold" FontSize="16" Height="30"/>
             </Grid>
         </Border>

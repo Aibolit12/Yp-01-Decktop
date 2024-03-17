@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace Yp_01_Decktop.Pages
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+            DataTable query = Classes.DataBase.Select("SELECT COUNT(*) FROM Requests;");
+            CountRequest.Content = "Количество выполненных заявок: " + query.Rows[0][0].ToString();
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {

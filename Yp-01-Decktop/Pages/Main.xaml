@@ -19,25 +19,20 @@
             <Border  CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="285,5,0,0" Background="White" Padding="5" MouseDown="Search">
                 <Image Source="/Images/search.png" Width="15" Height="15"/>
             </Border>
-            
-            <Border Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionQRCode"> 
+
+            <Border x:Name="QRCodeClient" Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionQRCode" Visibility="Hidden"> 
                 <Label Content="QRCode" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </Border>
 
-            <Border Background="White" HorizontalAlignment="Left" Margin="410,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionStatistic">
+            <Border x:Name="StatisticManager" Background="White" HorizontalAlignment="Left" Margin="410,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionStatistic" Visibility="Hidden">
                 <Label Content="Статистика" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </Border>
 
-            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionReport">
+            <Border x:Name="ReportPerformer" Background="White" HorizontalAlignment="Left" Margin="320,5,0,0" CornerRadius="12" Width="80" VerticalAlignment="Center" MouseDown="TransitionReport" Visibility="Hidden">
                 <Label Content="Отчет" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </Border>
-            
-            <Border Background="White" HorizontalAlignment="Left" Margin="500,5,0,0" CornerRadius="12" Width="120" VerticalAlignment="Center" MouseDown="TransitionAddComment">
-                <Label Content="Комментарий" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-            </Border>
 
-
-            <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,110,0" Background="White" Width="80" MouseDown="AddRequest">
+            <Border x:Name="AddRequstClient" CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,110,0" Background="White" Width="80" MouseDown="AddRequest" Visibility="Hidden">
                 <Label Content="Добавить" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
             </Border>
             <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,20,0" Background="White" Width="80" MouseDown="Exit">

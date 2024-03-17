@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yp_01_Decktop.Classes;
 using Yp_01_Decktop.Items;
 
 namespace Yp_01_Decktop.Pages
@@ -28,13 +29,26 @@ namespace Yp_01_Decktop.Pages
             mainWindow = _mainWindow;
             mainWindow.LoadItem();
             Load();
+            if(Users.Role == "Клиент")
+            {
+                AddRequstClient.Visibility = Visibility.Visible;
+                QRCodeClient.Visibility = Visibility.Visible;
+            }
+            else if (Users.Role == "Менеджер")
+            {
+                StatisticManager.Visibility = Visibility.Visible;
+            }
+            else if (Users.Role == "Сотрудник")
+            {
+                ReportPerformer.Visibility = Visibility.Visible;
+            }
         }
         public void Load()
         {
             pagesListBox.Items.Clear();
             foreach (var page in mainWindow.RequestItem)
             {
-                RequestItem pageControl = new RequestItem();
+                RequestItem pageControl = new RequestItem(mainWindow, page);
                 pageControl.DataContext = page;
                 pagesListBox.Items.Add(pageControl);
             }
@@ -57,7 +71,7 @@ namespace Yp_01_Decktop.Pages
         }
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
-            mainWindow.frame.Navigate(new Pages.AddComment(mainWindow));
+            mainWindow.frame.Navigate(new Pages.RequestEdit(mainWindow));
         }
 
         public void TransitionReport(object sender, RoutedEventArgs e)
