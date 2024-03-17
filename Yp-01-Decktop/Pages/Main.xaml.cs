@@ -59,11 +59,29 @@ namespace Yp_01_Decktop.Pages
             TextBox textBox = (TextBox)sender;
             if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки или параметрам";
         }
-
-
+        
         public void Search(object sender, RoutedEventArgs e)
         {
-
+            mainWindow.LoadItem();
+            Load();
+            if (SearchText.Text.Length > 0 && SearchText.Text != "По номеру заявки или параметрам")
+            {
+                try
+                {
+                    mainWindow.RequestItem = mainWindow.RequestItem.Where(x => x.Number.ToLower().Contains(SearchText.Text.ToLower())).ToList();
+                    pagesListBox.Items.Clear();
+                    foreach (var item in mainWindow.RequestItem)
+                    {
+                        RequestItem pageControl = new RequestItem(mainWindow, item);
+                        pageControl.DataContext = item;
+                        pagesListBox.Items.Add(pageControl);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
         public void TransitionAddComment(object sender, RoutedEventArgs e)
         {
