@@ -45,10 +45,21 @@ namespace Yp_01_Decktop.Pages
         }
         public void CreateReport(object sender, RoutedEventArgs e)
         {
-            string materials = Materials.Text;
-            string price = Price.Text;
-            PDF.CreatePDF(request.Number.ToString(), DateTime.Now.ToString(), request.Equipment, (DateTime.Parse(request.EndDate) - DateTime.Parse(request.StartDate)).ToString(), materials, price);
-            mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+            if(Materials.Text.Length != 0 && Price.Text.Length != 0 && Materials.Text != "Введите материалы которые вы потратили на эту заявку" && Price.Text != "Введите стоимость")
+            {
+                try
+                {
+                    string materials = Materials.Text;
+                    string price = Price.Text;
+                    PDF.CreatePDF(request.Number.ToString(), DateTime.Now.ToString(), request.Equipment, (DateTime.Parse(request.EndDate) - DateTime.Parse(request.StartDate)).ToString(), materials, price);
+                    mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Заполните все поля");
         }
         public void TransitionBack(object sender, RoutedEventArgs e)
         {
