@@ -35,7 +35,7 @@ namespace Yp_01_Decktop.Pages
                 TimeSpan totalTime = new TimeSpan();
                 foreach (var row in mainWindow.RequestItem)
                 {
-                    if (row.Status == "2")
+                    if (row.Status == "Готово")
                     {
                         complete++;
                         totalTime += DateTime.Parse(row.EndDate) - DateTime.Parse(row.StartDate);

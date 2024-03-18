@@ -13,7 +13,7 @@
             <Label Content="Поиск"  HorizontalAlignment="Left" Margin="20,5,0,0" FontWeight="Bold"/>
             
             <Border CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,5,0,0" Width="210" Padding="5" Background="White">
-                <TextBox x:Name="SearchText" Text="По номеру заявки или параметрам" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                <TextBox x:Name="SearchText" Text="По номеру заявки" BorderThickness="0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
             </Border>
             
             <Border  CornerRadius="12" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="285,5,0,0" Background="White" Padding="5" MouseDown="Search">

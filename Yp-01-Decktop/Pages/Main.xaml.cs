@@ -59,19 +59,19 @@ namespace Yp_01_Decktop.Pages
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "По номеру заявки или параметрам") textBox.Text = "";
+            if (textBox.Text == "По номеру заявки") textBox.Text = "";
         }
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки или параметрам";
+            if (string.IsNullOrWhiteSpace(textBox.Text)) if (textBox == SearchText) textBox.Text = "По номеру заявки";
         }
         
         public void Search(object sender, RoutedEventArgs e)
         {
             mainWindow.LoadItem();
             Load();
-            if (SearchText.Text.Length > 0 && SearchText.Text != "По номеру заявки или параметрам")
+            if (SearchText.Text.Length > 0 && SearchText.Text != "По номеру заявки")
             {
                 try
                 {

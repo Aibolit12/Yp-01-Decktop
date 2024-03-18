@@ -31,10 +31,11 @@ namespace Yp_01_Decktop.Items
             mainWindow = _mainWindow;
             request = _request;
             LoadItemsRequest();
-            
+            DateTime StartDatee = DateTime.Today;
+            string formattedDate = StartDatee.ToShortDateString();
             if (Users.Role == "Клиент")
             {
-                if(request.Status == "В ожидание")
+                if (request.Status == "В ожидание" || request.EndDate == formattedDate)
                 {
                     ChangeRequest.Visibility= Visibility.Visible;
                     Delete.Visibility = Visibility.Visible;
