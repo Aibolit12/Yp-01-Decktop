@@ -34,8 +34,11 @@ namespace Yp_01_Decktop.Items
             
             if (Users.Role == "Клиент")
             {
-                ChangeRequest.Visibility= Visibility.Visible;
-                Delete.Visibility = Visibility.Visible;
+                if(request.Status == "В ожидание")
+                {
+                    ChangeRequest.Visibility= Visibility.Visible;
+                    Delete.Visibility = Visibility.Visible;
+                }
             }
             if (Users.Role == "Менеджер")
             {

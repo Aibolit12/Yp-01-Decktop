@@ -31,7 +31,7 @@ namespace Yp_01_Decktop.Pages
         {
             try
             {
-                ImageQRCode.Source = Classes.QRCode.CreateBitmapCode(":)))))))))))))))))))))))))))))))))))))))))))))))))))");
+                ImageQRCode.Source = Classes.QRCode.CreateBitmapCode("https://forms.gle/a3tZf9fCMtEh57Lu7");
             }
             catch (Exception ex)
             {
