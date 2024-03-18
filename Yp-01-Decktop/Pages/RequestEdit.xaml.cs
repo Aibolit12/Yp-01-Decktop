@@ -33,6 +33,7 @@ namespace Yp_01_Decktop.Pages
             if (Users.Role == "Клиент")
             {
                 RequestClientEdit.Visibility = Visibility.Visible;
+                Add.Visibility = Visibility.Visible;
                 LoadTypeOfFaul();
             }
             else if (Users.Role == "Менеджер")
@@ -55,6 +56,7 @@ namespace Yp_01_Decktop.Pages
             if (Users.Role == "Клиент")
             {
                 RequestClientEdit.Visibility = Visibility.Visible;
+                UpDate.Visibility = Visibility.Visible;
                 LoadTypeOfFaul();
                 try
                 {
@@ -214,6 +216,33 @@ namespace Yp_01_Decktop.Pages
             else MessageBox.Show("Заполните все поля");
             
         }
+        public void UpDateRequestClient(object sender, RoutedEventArgs e)
+        {
+            if (Equipment.Text.Length != 0 && comboBoxTypesOfFaults.SelectedIndex != -1 && Description.Text.Length != 0)
+            {
+                try
+                {
+                    int ID = 0;
+                    string TypeOfFaults;
+                    TypeOfFaults = comboBoxTypesOfFaults.SelectedItem.ToString();
+                    DataTable item = Classes.DataBase.Select($"select Id from [TypeOfFault] where Name = '{TypeOfFaults}'");
+                    foreach (DataRow row in item.Rows)
+                    {
+                        ID = Convert.ToInt32(row[0]);
+                    }
+                    DataTable result = Classes.DataBase.Select($"UPDATE [Requests] SET Equipment = '{Equipment.Text}',[TypeOfFault] = '{ID}', Description = '{Description.Text}' where Id = '{request.Id}'");
+                    MessageBox.Show("Заявка успешно обновлена");
+                    mainWindow.LoadItem();
+                    mainWindow.frame.Navigate(new Pages.Main(mainWindow));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("Заполните все поля");
+        }
+
         public void UpDateRequestManager(object sender, RoutedEventArgs e)
         {
             try
