@@ -37,16 +37,23 @@ namespace Yp_01_Decktop.Pages
             else if (Users.Role == "Менеджер")
             {
                 StatisticManager.Visibility = Visibility.Visible;
-            }
+            } 
         }
         public void Load()
         {
             pagesListBox.Items.Clear();
-            foreach (var page in mainWindow.RequestItem)
+            foreach (var request in mainWindow.RequestItem)
             {
-                RequestItem pageControl = new RequestItem(mainWindow, page);
-                pageControl.DataContext = page;
-                pagesListBox.Items.Add(pageControl);
+                RequestItem requestControl = new RequestItem(mainWindow, request);
+                requestControl.DataContext = request;
+                pagesListBox.Items.Add(requestControl);
+                if(Users.Role == "Клиент")
+                {
+                    DateTime StartDatee = DateTime.Today;
+                    string formattedDate = StartDatee.ToShortDateString();
+                    if (request.Status == "Готово") MessageBox.Show(request.Number + " Заявка готова");
+                    else if (request.EndDate == formattedDate) MessageBox.Show(request.Number + " Заявка готова");
+                }
             }
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

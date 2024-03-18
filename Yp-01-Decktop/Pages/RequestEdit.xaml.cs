@@ -60,13 +60,7 @@ namespace Yp_01_Decktop.Pages
                 LoadTypeOfFaul();
                 try
                 {
-                    string TypesOfFaults = "";
-                    int ID = Convert.ToInt32(request.TypeOfFault);
-                    DataTable item = Classes.DataBase.Select($"select Name from [TypeOfFault] where Id = '{ID}'");
-                    foreach (DataRow row in item.Rows)
-                    {
-                        TypesOfFaults = row[0].ToString();
-                    }
+                    string TypesOfFaults = request.TypeOfFault;
                     Equipment.Text = request.Equipment;
                     comboBoxTypesOfFaults.SelectedItem = TypesOfFaults;
                     Description.Text = request.Description;
@@ -82,17 +76,7 @@ namespace Yp_01_Decktop.Pages
                 LoadPerformer();
                 try
                 {
-                    string Performer = "";
-                    if (request.Performer != "")
-                    {
-                        int ID = Convert.ToInt32(request.Performer);
-                        DataTable item = Classes.DataBase.Select($"select FIO from [Users] where Id = '{ID}'");
-                        foreach (DataRow row in item.Rows)
-                        {
-                            Performer = row[0].ToString();
-                        }
-                    }
-                    else Performer = "";
+                    string Performer = request.Performer;
                     comboBoxPerformer.SelectedItem = Performer;
                     EndDate.Text = request.EndDate;
                 }
@@ -107,13 +91,7 @@ namespace Yp_01_Decktop.Pages
                 LoadStatus();
                 try
                 {
-                    string Status = "";
-                    int ID = Convert.ToInt32(request.Status);
-                    DataTable item = Classes.DataBase.Select($"select Name from [Status] where Id = '{ID}'");
-                    foreach (DataRow row in item.Rows)
-                    {
-                        Status = row[0].ToString();
-                    }
+                    string Status = request.Status;
                     comboBoxStatus.SelectedItem = Status;
                     CommentPerformer.Text = request.PerformerComment;
                 }

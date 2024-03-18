@@ -31,6 +31,7 @@ namespace Yp_01_Decktop.Items
             mainWindow = _mainWindow;
             request = _request;
             LoadItemsRequest();
+            
             if (Users.Role == "Клиент")
             {
                 ChangeRequest.Visibility= Visibility.Visible;
@@ -47,7 +48,7 @@ namespace Yp_01_Decktop.Items
             }
         }
         public void LoadItemsRequest()
-        {
+        { 
             Number.Text = "Номер заявки: " + request.Number;
             StartDate.Text = "Дата начала: " + request.StartDate;
             EndDate.Text = "Дата конца: " + request.EndDate;

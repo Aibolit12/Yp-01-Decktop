@@ -30,7 +30,6 @@ namespace Yp_01_Decktop
             InitializeComponent();
             this.frame.Navigate(new Pages.Authorization(this));
         }
-        
         public void LoadItem()
         {
             try
@@ -40,12 +39,12 @@ namespace Yp_01_Decktop
                     try
                     {
                         RequestItem.Clear();
-                        DataTable itemuser = Classes.DataBase.Select($"select * from [Requests] where Client = '{Users.Id}'");
+                        DataTable itemuser = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id WHERE Requests.Client = '{Users.Id}';");
                         foreach (DataRow row in itemuser.Rows)
                         {
                             Classes.Request request = new Classes.Request
                             {
-                                Id = Convert.ToInt32(row["Id"]),
+                                Id =  Convert.ToInt32(row["Id"]),
                                 Number = row["Number"].ToString(),
                                 StartDate = row["StartDate"].ToString(),
                                 EndDate = row["EndDate"].ToString(),
@@ -70,7 +69,7 @@ namespace Yp_01_Decktop
                     try
                     {
                         RequestItem.Clear();
-                        DataTable item = Classes.DataBase.Select($"select * from [Requests]");
+                        DataTable item = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id LEFT JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id;");
 
                         foreach (DataRow row in item.Rows)
                         {
@@ -102,7 +101,7 @@ namespace Yp_01_Decktop
                     try
                     {
                         RequestItem.Clear();
-                        DataTable item = Classes.DataBase.Select($"select * from [Requests] where Performer = '{Users.Id}'");
+                        DataTable item = Classes.DataBase.Select($"SELECT Requests.Id, Requests.Number, Requests.StartDate, Requests.EndDate, Requests.Equipment, TypeOfFault.Name AS TypeOfFault, Requests.Description, Users.FIO AS Client, Users2.FIO AS Performer, Status.Name AS Status, Requests.PerformerComment FROM Requests JOIN TypeOfFault ON Requests.TypeOfFault = TypeOfFault.Id JOIN Users ON Requests.Client = Users.Id JOIN Users Users2 ON Requests.Performer = Users2.Id JOIN Status ON Requests.Status = Status.Id where Performer = '{Users.Id}'");
 
                         foreach (DataRow row in item.Rows)
                         {
